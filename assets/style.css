@@ -1,0 +1,38 @@
+.bg-c1{
+    background-color: #30353a;
+}
+.text-c1{
+    color:#fff;
+    text-align: center;
+}
+
+.parallax {
+    /* The image used */
+    /*background-image: url("img.png");*/
+    background-image: url(img.png);
+    /* Set a specific height */
+    min-height: 750px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.margin-tp{
+    margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+
+    .parallax{
+        background-image: url(Imagem_do_WhatsApp_de_2023-11-04_à_s__14.51.16_fc42af7d-removebg-preview.png);
+        background-color: #c0c1c3;
+        background-attachment: local;
+        min-height: 530px;
+    }
+    .margin-tp{ 
+        margin-top: -30px;
+    }
+}

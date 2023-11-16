@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <title>Seringe</title>
+</head>
+<body>
+    <nav class="navbar bg-c1 fixed-top">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1 text-c1" style="color: 
+          #fff;font-family: 'Philosopher', sans-serif;">Seringe</span>
+        </div>
+    </nav>
+    
+    <div class="margin-tp">
+        <div class="parallax"></div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p id="texto"></p>
+              </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 bg-w">
+        <div class="bg-c1 text-c1 p-2 rounded">
+            <h2>Precisamos de um baterista</h2>
+        </div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScSp19Ru5GpdS7np7SIeebCmbVoW1Thou3mIQ9XerGAqDGNww/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.parallax');
+            //var instances = M.Parallax.init(elems, options);
+        });
+        const textP = document.getElementById('texto')
+
+        function digita(tag, texto, fim) {
+            tag.innerText = texto+ (fim?"":"|")
+        }
+
+        frase = "A banda Seringe será focada em grunge e indie, atualmente somos 4 integrantes e estamos em busca de um baterista, caso tenha interesse preencha o formulário abaixo e entraremos em contato."
+        
+        function esperarPor(t = 2000){
+            return new Promise(function(resolve){
+                setTimeout(() => resolve(),t)
+            })
+        }
+        
+
+        async function textoInterativo(tag, frase, t){
+            texto = "";
+            for(i = 0; i<frase.length; i++){
+                texto+=frase[i];
+                await esperarPor(t);
+                digita(tag, texto, i == frase.length-1)
+            }
+
+        }
+
+        textoInterativo(textP, frase, 55)
+
+    </script>
+</body>
+</html>
